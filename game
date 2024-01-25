@@ -1,0 +1,27 @@
+from random import *
+n = randint(1, 100)
+print('Добро пожаловать в числовую угадайку')
+print()
+
+def is_valid(txt):
+    return txt.isdigit() and 1 <= float(txt) <= 100 and float(txt) == int(float(txt))
+
+x = 0
+count = 1
+while x != n:
+    x = input('Введите число от 1 до 100 ')
+    if not is_valid(x):
+        print('А может быть все-таки введем целое число от 1 до 100?')
+        print()
+        continue
+    x = int(x)
+    if x < n:
+        count += 1
+        print('Ваше число меньше загаданного, попробуйте еще разок')
+        print()
+    elif x > n:
+        count += 1
+        print('Ваше число больше загаданного, попробуйте еще разок')
+        print()
+print('Вы угадали c', count, 'попытки, поздравляем!')
+print('Спасибо, что играли в числовую угадайку.')
